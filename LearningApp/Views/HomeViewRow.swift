@@ -32,7 +32,8 @@ struct HomeViewRow: View {
                 
                 Spacer()
                 // Text
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading)//)
+                    {
                     
                     // Headline
                     Text(title)
@@ -49,7 +50,7 @@ struct HomeViewRow: View {
                             .resizable()
                             .frame(width: 15, height: 15)
                         Text(count)
-                            .font(Font.system(size: 8))
+                            .font(Font.system(size: 10))
                             
                        // Spacer()
                         // Time
