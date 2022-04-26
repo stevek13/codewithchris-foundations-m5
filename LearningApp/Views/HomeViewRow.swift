@@ -16,7 +16,7 @@ struct HomeViewRow: View {
     var time: String
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .leading) {
             Rectangle()
                 .foregroundColor(.white)
                 .cornerRadius(10)
@@ -32,7 +32,7 @@ struct HomeViewRow: View {
                 
                 Spacer()
                 // Text
-                VStack(alignment: .leading)//)
+                VStack(alignment: .leading)
                     {
                     
                     // Headline
@@ -40,9 +40,11 @@ struct HomeViewRow: View {
                         .bold()
                     
                     // Description
+                        
                     Text(description)
                         .padding(.bottom, 20)
                         .font(.caption)
+                        .multilineTextAlignment(.leading)
                     // Icons
                     HStack {
                         // Number of lessons/questions
