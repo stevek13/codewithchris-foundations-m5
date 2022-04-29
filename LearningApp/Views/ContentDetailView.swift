@@ -16,16 +16,20 @@ struct ContentDetailView: View {
         
         
         let lesson = model.currentLesson
+       
         let url = URL(string:  Constants.videoHostUrl + (lesson?.video ?? ""))
        
         VStack {
+            
         // Only show video if we get a valid url
         if url != nil {
+           
             VideoPlayer(player: AVPlayer(url: url!))
                 .cornerRadius(10)
         }
         //Description
-        
+        CodeTextView()
+            
         //Next Lesson Button
         // Show button only if there is a next lesson
         if model.hasNextLesson() {
@@ -48,7 +52,9 @@ struct ContentDetailView: View {
         
     }
         .padding()
+        .navigationBarTitle(lesson?.title ?? "")
 }
+    
 }
 struct ContentDetailView_Previews: PreviewProvider {
     static var previews: some View {
