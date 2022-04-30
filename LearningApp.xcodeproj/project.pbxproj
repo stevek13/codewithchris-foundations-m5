@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20164970281DAB9D00E3D7C8 /* RectangleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2016496F281DAB9D00E3D7C8 /* RectangleCard.swift */; };
 		2019D7EB2813824D003AEB1F /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2019D7EA2813824D003AEB1F /* LearningApp.swift */; };
 		2019D7ED2813824D003AEB1F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2019D7EC2813824D003AEB1F /* HomeView.swift */; };
 		2019D7EF28138250003AEB1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2019D7EE28138250003AEB1F /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2016496F281DAB9D00E3D7C8 /* RectangleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCard.swift; sourceTree = "<group>"; };
 		2019D7E72813824D003AEB1F /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2019D7EA2813824D003AEB1F /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		2019D7EC2813824D003AEB1F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				20E0B098281586770010106C /* ContentView.swift */,
 				20E0B09A281594D70010106C /* ContentViewRow.swift */,
 				20A339E728183EE600BCDB30 /* ContentDetailView.swift */,
+				2016496F281DAB9D00E3D7C8 /* RectangleCard.swift */,
 				20E1B118281C1C5A00F18200 /* CodeTextView.swift */,
 			);
 			path = Views;
@@ -230,6 +233,7 @@
 				20E1B119281C1C5A00F18200 /* CodeTextView.swift in Sources */,
 				2019D7EB2813824D003AEB1F /* LearningApp.swift in Sources */,
 				2031314828142E1300B38D4F /* Models.swift in Sources */,
+				20164970281DAB9D00E3D7C8 /* RectangleCard.swift in Sources */,
 				203642C6281AE457004F4888 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
