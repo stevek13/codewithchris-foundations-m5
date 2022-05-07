@@ -34,16 +34,16 @@ class ContentModel: ObservableObject {
     init() {
         getLocalData()
     }
-
+    
     // MARK: - Data Methods
     func getLocalData() {
         // get URL to json file
         let jsonUrl = Bundle.main.url(forResource: "data", withExtension: "json")
         
         do {
-        // read the file into a data object
+            // read the file into a data object
             let jsonData = try Data(contentsOf: jsonUrl!)
-        
+            
             // Try to decode the json into an array of modules
             let jsonDecoder = JSONDecoder()
             let modules = try jsonDecoder.decode([Module].self, from: jsonData)
@@ -60,17 +60,12 @@ class ContentModel: ObservableObject {
         do {
             // Read the file into a data object
             let styleData = try Data(contentsOf: styleUrl!)
-        
+            
             self.styleData = styleData
         } catch {
             // Log error
             print("Couldn't parse style data")
         }
-        
-        
-        
-        
-        
     }
     
     // MARK: - Module navigation methods
@@ -93,14 +88,14 @@ class ContentModel: ObservableObject {
         //Check that the lesson index is within range of module indes
         if lessonIndex < currentModule!.content.lessons.count {
             currentLessonIndex = lessonIndex
-    } else {
-        currentLessonIndex = 0
-    }
-    // Set the current lesson
+        } else {
+            currentLessonIndex = 0
+        }
+        // Set the current lesson
         currentLesson = currentModule!.content.lessons[currentLessonIndex]
         codeText = addStyling(currentLesson!.explanation)
     }
- 
+    
     func nextLesson() {
         // Advance the lesson Index
         currentLessonIndex += 1
@@ -117,7 +112,7 @@ class ContentModel: ObservableObject {
     }
     func hasNextLesson() -> Bool {
         return currentLessonIndex + 1 < currentModule!.content.lessons.count
- 
+        
     }
     
     func beginTest(_ moduleId:Int) {
@@ -133,6 +128,22 @@ class ContentModel: ObservableObject {
             codeText = addStyling(currentQuestion!.content)
         }
     }
+    func nextQuestion() {
+        
+        // Advance the question index
+        currentQuestionIndex += 1
+        // Check that it's within the range of questions
+        if currentQuestionIndex < currentModule!.test.questions.count {
+            // Set the current question
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex]
+            codeText = addStyling(currentQuestion!.content)
+        } else {
+            // If not, reset the propertiess
+            currentQuestionIndex = 0
+            currentQuestion = nil
+        }
+    }
+    
     
     // MARK: - Code Styling
     private func addStyling(_ htmlString: String) -> NSAttributedString {
@@ -141,7 +152,7 @@ class ContentModel: ObservableObject {
         
         //Add the styling data
         if styleData != nil  {
-        data.append(self.styleData!)
+            data.append(self.styleData!)
         }
         //Add the html data
         data.append(Data(htmlString.utf8))
@@ -149,7 +160,7 @@ class ContentModel: ObservableObject {
         
         //Convert to attributed string
         if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
-                
+            
             resultString = attributedString
         }
         return resultString
