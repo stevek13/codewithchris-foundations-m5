@@ -47,7 +47,6 @@
 		20E1B118281C1C5A00F18200 /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 		20EA75F028206FD000CB1E3C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		20F772FD28269D2300EDA261 /* TestResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultView.swift; sourceTree = "<group>"; };
-		20F772FF2826AD7D00EDA261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +81,6 @@
 		2019D7E92813824D003AEB1F /* LearningApp */ = {
 			isa = PBXGroup;
 			children = (
-				20F772FF2826AD7D00EDA261 /* Info.plist */,
 				2019D7EA2813824D003AEB1F /* LearningApp.swift */,
 				2019D7F8281382F1003AEB1F /* Views */,
 				2019D7F9281382F9003AEB1F /* ViewModel */,
