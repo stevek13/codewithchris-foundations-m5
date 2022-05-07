@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CodeTextView: UIViewRepresentable {
     
-    @EnvironmentObject var model: ContentModel
+    @EnvironmentObject var model:ContentModel
     
     func makeUIView(context: Context) -> some UITextView {
         let textView = UITextView()
