@@ -10,6 +10,7 @@ import SwiftUI
 struct TestView: View {
     
     @EnvironmentObject var model: ContentModel
+    
     @State var selectedAnswerIndex:Int?
     @State var numCorrect = 0
     @State var submitted:Bool = false
@@ -41,6 +42,7 @@ struct TestView: View {
                                         if index == selectedAnswerIndex && index == model.currentQuestion!.correctIndex {
                                             RectangleCard(color: Color.green)
                                                 .frame(height: 48)
+                                                
                                         } else if index == selectedAnswerIndex && index != model.currentQuestion!.correctIndex{
                                             RectangleCard(color: Color.red)
                                                 .frame(height: 48)

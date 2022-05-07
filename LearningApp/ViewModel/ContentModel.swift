@@ -33,9 +33,13 @@ class ContentModel: ObservableObject {
     
     init() {
         getLocalData()
+
+        getRemoteData()
     }
     
     // MARK: - Data Methods
+    
+    // Parse local included JSON data
     func getLocalData() {
         // get URL to json file
         let jsonUrl = Bundle.main.url(forResource: "data", withExtension: "json")
@@ -68,6 +72,48 @@ class ContentModel: ObservableObject {
         }
     }
     
+    // Download remote JSON file and parse it
+    func getRemoteData() {
+        // String path to remote data
+        let urlString = "https://stevek13.github.io/learningapp-data/data2.json"
+        
+        // Create URL object
+        let url = URL(string: urlString)
+        
+        guard url != nil else {
+            // Couldn't create url
+            return
+        }
+        
+        // Create a URLRequest object
+        let request = URLRequest(url: url!)
+        
+        // Get the session and kick off the task
+        let session = URLSession.shared
+        
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            // Check if there is an error
+            guard error == nil else {
+                // There was an error
+                return
+            }
+            // Handle the response
+            // Try to decode the json into an array of modules
+            do {
+            let decoder = JSONDecoder()
+           
+                let modules = try decoder.decode([Module].self, from: data!)
+                
+                // Append parsed modules into modules property
+                self.modules += modules
+            }
+            catch {
+                // Couldn't parse JSON
+            }
+        }
+        // Kick off the dataTask
+        dataTask.resume()
+    }
     // MARK: - Module navigation methods
     
     func beginModule(_ moduleid: Int) {
