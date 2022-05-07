@@ -107,9 +107,13 @@ struct TestView: View {
             
         }
         else {
-            // Test hasn't loaded
-            ProgressView()
+            // if current question is nil, we show thethe result view
+            TestResultView(numCorrect: numCorrect)
         }
+//        else {
+//            // Test hasn't loaded
+//            ProgressView()
+//        }
     }
     
     var buttonText:String {
